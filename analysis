@@ -1,0 +1,74 @@
+import json
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load JSON file for the study
+file_path = '/Users/yung-peiko/Downloads/NCT03593941.json'  # Update with your file path
+with open(file_path, 'r') as file:
+    data = json.load(file)
+
+# Extract relevant sections for analysis
+outcomes = data['protocolSection']['outcomesModule']
+primary_outcomes = outcomes.get('primaryOutcomes', [])
+secondary_outcomes = outcomes.get('secondaryOutcomes', [])
+
+# Summarize primary and secondary outcomes
+primary_outcomes_df = pd.DataFrame(primary_outcomes)
+secondary_outcomes_df = pd.DataFrame(secondary_outcomes)
+
+# Display primary and secondary outcomes
+print("Primary Outcomes:")
+print(primary_outcomes_df[['measure', 'description', 'timeFrame']])
+
+print("\nSecondary Outcomes:")
+print(secondary_outcomes_df[['measure', 'description', 'timeFrame']])
+
+# Simulated Data for Visualization: Short Chain Fatty Acid (SCFA) Profile
+scfa_data = {
+    'Group': ['Alzheimer\'s with Challenging Behavior', 'Alzheimer\'s without Challenging Behavior', 'Healthy Elderly'],
+    'Acetate': [0.8, 0.6, 1.0],  # Simulated concentrations (mmol/L)
+    'Propionate': [0.4, 0.3, 0.5],
+    'Butyrate': [0.2, 0.1, 0.4]
+}
+df_scfa = pd.DataFrame(scfa_data).set_index('Group')
+
+# Visualization: SCFA Profiles Across Groups
+df_scfa.plot(kind='bar', figsize=(10, 6))
+plt.title('SCFA Profiles in Different Participant Groups')
+plt.ylabel('Concentration (mmol/L)')
+plt.xlabel('Group')
+plt.xticks(rotation=45)
+plt.show()
+
+# Simulated Data for Challenging Behavior Frequency
+behavior_data = {
+    'Group': ['Alzheimer\'s with Challenging Behavior', 'Alzheimer\'s without Challenging Behavior', 'Healthy Elderly'],
+    'Behavior Incidents': [15, 5, 0]  # Simulated data for behavior frequency
+}
+df_behavior = pd.DataFrame(behavior_data)
+
+# Visualization: Frequency of Challenging Behaviors
+plt.figure(figsize=(8, 6))
+sns.barplot(x='Group', y='Behavior Incidents', data=df_behavior, dodge=False, palette='coolwarm')
+plt.title('Frequency of Challenging Behaviors Across Groups')
+plt.ylabel('Number of Incidents')
+plt.xlabel('Group')
+plt.xticks(rotation=45)
+plt.show()
+
+# Simulated Data for Willingness to Participate in Future Trials
+willingness_data = {
+    'Group': ['Alzheimer\'s with Challenging Behavior', 'Alzheimer\'s without Challenging Behavior', 'Healthy Elderly'],
+    'Willingness (%)': [70, 85, 90]  # Simulated data for willingness percentage
+}
+df_willingness = pd.DataFrame(willingness_data)
+
+# Visualization: Willingness to Participate in Future Clinical Trials
+plt.figure(figsize=(8, 6))
+sns.barplot(x='Group', y='Willingness (%)', data=df_willingness, dodge=False, palette='viridis')
+plt.title('Willingness to Participate in Future Clinical Trials')
+plt.ylabel('Percentage (%)')
+plt.xlabel('Group')
+plt.xticks(rotation=45)
+plt.show()
