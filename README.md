@@ -29,6 +29,7 @@ This research underscores the potential of using dietary interventions to improv
 
 🌱 **What’s Next?**:
 Could personalized nutrition or microbiota-targeted therapies transform Alzheimer’s treatment? Let’s connect to discuss how data-driven solutions might redefine brain health and aging!
-![plot_2024-12-12 22-51-28_0](https://github.com/user-attachments/assets/f6bef5d2-12c8-451e-a05e-f04bd63c0bd3)
+![plot_2024-12-12 22-51-28_0](https://github.com/user-attachments/assets/c6e89edb-3fd2-4fa0-90e9-3c737d20ffcc)
+![plot_2024-12-12 22-51-28_1](https://github.com/user-attachments/assets/663a4931-2d33-4e7a-abf8-eac94a896789)
+![plot_2024-12-12 22-51-28_2](https://github.com/user-attachments/assets/a12f4a77-bfe9-4840-8632-62425834ad9f)
 
----
